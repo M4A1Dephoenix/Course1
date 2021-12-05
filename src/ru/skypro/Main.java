@@ -9,7 +9,7 @@ public class Main {
     int allSalary = 0;
     int lowSalary = 999999999;
     int hightSalary = 0;
-    int mediumSalary = 0;
+    int mediumSalary = 0; //
         for (int i = 0; i < employee.length ; i++) {
 
             int salary = employee[i].getsalary();
