@@ -6,18 +6,31 @@ public class Main {
 
     public static void main(String[] args) {
     Employee[] employee = new Employee[2];
-    employee[0] = new Employee("Васильев Василий Васильевич", "1", 100000,0);
-    employee[1] = new Employee("Иванов Иван Иванович", "2", 110000, 1);
+    employee[0] = new Employee("Васильев Василий Васильевич", "1", 100000);
+    employee[1] = new Employee("Иванов Иван Иванович", "2", 110000);
     int allSalary = 0;
     int lowSalary = 999999999;
     int hightSalary = 0;
     int mediumSalary = 0;
+        for (int i = 0; i < employee.length; i++) {
+            int salary = employee[i].getsalary();
+            allSalary = allSalary(salary,allSalary);
+        }
+        for (int i = 0; i < employee.length; i++) {
+            int salary = employee[i].getsalary();
+            allSalary = allSalary(salary,allSalary);
+        }
+        for (int i = 0; i < employee.length; i++) {
+            int salary = employee[i].getsalary();
+            lowSalary = lowtSalary(salary,lowSalary);
+        }
+        for (int i = 0; i < employee.length; i++) {
+            int salary = employee[i].getsalary();
+            hightSalary = hightSalary(salary,hightSalary);
+        }
         for (int i = 0; i < employee.length ; i++) {
 
             int salary = employee[i].getsalary();
-            allSalary = allSalary(salary,allSalary);
-            lowSalary = lowtSalary(salary,lowSalary);
-            hightSalary = hightSalary(salary,hightSalary);
             mediumSalary = mediumSalary(i+1, mediumSalary,salary);
 
             System.out.println("ФИО " + employee[i].getfio()+"; " + "Отдел " + employee[i].getepartment() +"; " + "Заработная плата " + employee[i].getsalary());
