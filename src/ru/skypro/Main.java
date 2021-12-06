@@ -1,5 +1,7 @@
 package ru.skypro;
 
+import java.sql.SQLOutput;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -20,6 +22,9 @@ public class Main {
 
             System.out.println("ФИО " + employee[i].getfio()+"; " + "Отдел " + employee[i].getepartment() +"; " + "Заработная плата " + employee[i].getsalary());
 
+        }
+        for (int i = 0; i < employee.length ; i++){
+            System.out.println("ФИО сотрудника " + employee[i].getfio());
         }
         System.out.println("Общая заработная плата = "+ allSalary);
         System.out.println("Минимальная заработная плата у сотрудника: " + lowSalary);
