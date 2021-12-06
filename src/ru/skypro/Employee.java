@@ -2,14 +2,15 @@ package ru.skypro;
 
 public class Employee {
     private final String fio;
-    private final String department;
-    private final int salary;
+    private String department;
+    private int salary;
     private final int id;
-    public Employee (String fio, String department, int salary, int id){
+    static int counter;
+    public Employee (String fio, String department, int salary){
         this.fio = fio;
         this.department = department;
         this.salary = salary;
-        this.id = id;
+        this.id = counter++;
     }
 
     public String getfio(){return fio;}
@@ -18,7 +19,6 @@ public class Employee {
     public int getid(){return id;}
     public void setdepartment(String department){ department = department;}
     public void setsalaryalary(int salary){salary = salary;}
-    public void setid(int id) {id = id;}
 
     @Override
     public String toString() {
