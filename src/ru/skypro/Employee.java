@@ -13,12 +13,30 @@ public class Employee {
         this.id = counter++;
     }
 
-    public String getfio(){return fio;}
-    public String getepartment(){return department;}
-    public int getsalary(){return salary;}
-    public int getid(){return id;}
-    public void setdepartment(String department){ department = department;}
-    public void setsalaryalary(int salary){salary = salary;}
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public String getFio() {
+        return fio;
+    }
+
+    public int getId() {
+        return id;
+    }
+
 
     @Override
     public String toString() {
