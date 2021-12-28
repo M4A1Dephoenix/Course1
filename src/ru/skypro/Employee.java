@@ -5,7 +5,7 @@ public class Employee {
     private String department;
     private int salary;
     private final int id;
-    static int counter;
+    private int counter;
     public Employee (String fio, String department, int salary){
         this.fio = fio;
         this.department = department;
@@ -21,9 +21,7 @@ public class Employee {
         this.department = department;
     }
 
-    public int getSalary() {
-        return salary;
-    }
+    public int getSalary() {return salary;}
 
     public void setSalary(int salary) {
         this.salary = salary;

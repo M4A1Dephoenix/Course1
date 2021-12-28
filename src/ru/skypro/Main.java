@@ -4,16 +4,20 @@ import java.sql.SQLOutput;
 
 public class Main {
 
-    public static void main(String[] args) {
-    Employee[] employee = new Employee[2];
-    employee[0] = new Employee("Васильев Василий Васильевич", "1", 100000);
-    employee[1] = new Employee("Иванов Иван Иванович", "2", 110000);
-    int allSalary = 0;
-    int lowSalary = 999999999;
-    int hightSalary = 0;
-    int mediumSalary = 0;
+    private static Employee[] employees = new Employee[2];
 
-        for (int i = 0; i < employee.length; i++) {
+    public static void main(String[] args) {Employee[] employee = new Employee[2];
+    employees[0] = new Employee("Васильев Василий Васильевич", "1", 100000);
+    employees[1] = new Employee("Иванов Иван Иванович", "2", 110000);
+    int allSalary = 0;
+
+
+        allSalary = calculateTotalSalary();
+        int lowSalary = calculateLowSalary();
+        int hightSalary = calculateHightSalary();
+        int mediumSalary = calculateMediumSalary();
+
+        /*for (int i = 0; i < employee.length; i++) {
             int salary = employee[i].getSalary();
             allSalary = allSalary(salary,allSalary);
         }
@@ -29,7 +33,7 @@ public class Main {
             int salary = employee[i].getSalary();
             hightSalary = hightSalary(salary,hightSalary);
         }
-        for (int i = 0; i < employee.length ; i++) {
+       /* for (int i = 0; i < employee.length ; i++) {
 
             int salary = employee[i].getSalary();
             mediumSalary = mediumSalary(i+1, mediumSalary,salary);
@@ -37,9 +41,11 @@ public class Main {
             System.out.println("ФИО " + employee[i].getFio()+"; " + "Отдел " + employee[i].getDepartment() +"; " + "Заработная плата " + employee[i].getSalary());
 
         }
+
         for (int i = 0; i < employee.length ; i++){
             System.out.println("ФИО сотрудника " + employee[i].getFio());
         }
+        */
         System.out.println("Общая заработная плата = "+ allSalary);
         System.out.println("Минимальная заработная плата у сотрудника: " + lowSalary);
         System.out.println("Максимальная заработная плата у сотрудника: " + hightSalary);
@@ -47,7 +53,46 @@ public class Main {
 
 
     }
-    public static int allSalary(int salary,int allSalary){
+    public static int calculateTotalSalary () {
+        int sum = 0;
+        for (Employee employee : employees) {
+            sum += employee.getSalary();
+        }
+        return sum;
+        }
+    public static int calculateLowSalary(){
+        int lowSalary = 999999999;
+        for (Employee employee : employees){
+            if (lowSalary> employee.getSalary()){
+                lowSalary = employee.getSalary();
+            }
+        }
+        return lowSalary;
+        }
+    public static int calculateHightSalary() {
+        int hightSalary = 0;
+        for (Employee employee : employees) {
+            if (hightSalary < employee.getSalary()) {
+                hightSalary = employee.getSalary();
+            }
+        }
+        return hightSalary;
+    }
+    public static int calculateMediumSalary(){
+        int mediumSalary = 0;
+        int i = 0;
+        for (Employee employee : employees){
+            mediumSalary =+employee.getSalary();
+            i++;
+
+
+        }
+        mediumSalary = mediumSalary / i;
+        return mediumSalary;
+        }
+
+
+   /* public static int allSalary(int salary,int allSalary){
 
         allSalary= allSalary + salary;
         return allSalary;
@@ -71,4 +116,5 @@ public class Main {
 
 
     }
+    */
 }
