@@ -6,10 +6,11 @@ public class Main {
 
     private static Employee[] employees = new Employee[2];
 
-    public static void main(String[] args) {Employee[] employee = new Employee[2];
-    employees[0] = new Employee("Васильев Василий Васильевич", "1", 100000);
-    employees[1] = new Employee("Иванов Иван Иванович", "2", 110000);
-    int allSalary = 0;
+    public static void main(String[] args) {
+        Employee[] employee = new Employee[2];
+        employees[0] = new Employee("Васильев Василий Васильевич", "1", 100000);
+        employees[1] = new Employee("Иванов Иван Иванович", "2", 110000);
+        int allSalary = 0;
 
 
         allSalary = calculateTotalSalary();
@@ -46,29 +47,32 @@ public class Main {
             System.out.println("ФИО сотрудника " + employee[i].getFio());
         }
         */
-        System.out.println("Общая заработная плата = "+ allSalary);
+        System.out.println("Общая заработная плата = " + allSalary);
         System.out.println("Минимальная заработная плата у сотрудника: " + lowSalary);
         System.out.println("Максимальная заработная плата у сотрудника: " + hightSalary);
         System.out.println("Средняя заработная плата у сотрудников: " + mediumSalary);
 
 
     }
-    public static int calculateTotalSalary () {
+
+    public static int calculateTotalSalary() {
         int sum = 0;
         for (Employee employee : employees) {
             sum += employee.getSalary();
         }
         return sum;
-        }
-    public static int calculateLowSalary(){
-        int lowSalary = 999999999;
-        for (Employee employee : employees){
-            if (lowSalary> employee.getSalary()){
-                lowSalary = employee.getSalary();
+    }
+
+    public static int calculateLowSalary() {
+        int minSalary = employees[0].getSalary();
+        for (Employee employee : employees) {
+            if (minSalary > employee.getSalary()) {
+                minSalary = employee.getSalary();
             }
         }
-        return lowSalary;
-        }
+        return minSalary;
+    }
+
     public static int calculateHightSalary() {
         int hightSalary = 0;
         for (Employee employee : employees) {
@@ -78,18 +82,16 @@ public class Main {
         }
         return hightSalary;
     }
-    public static int calculateMediumSalary(){
+
+    public static int calculateMediumSalary() {
         int mediumSalary = 0;
-        int i = 0;
-        for (Employee employee : employees){
-            mediumSalary =+employee.getSalary();
-            i++;
+        for (Employee employee : employees) {
+                mediumSalary = +employee.getSalary();
 
 
         }
-        mediumSalary = mediumSalary / i;
-        return mediumSalary;
-        }
+        return mediumSalary /  employees.length;
+    }
 
 
    /* public static int allSalary(int salary,int allSalary){
